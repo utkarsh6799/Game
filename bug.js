@@ -3,7 +3,7 @@ var mybackground;
 
 function startGame(){
     mybug=new component(90,70,"./images/bug.png",10,200,"image");
-    mybackground=new component(1000,500,"./images/grass.png",0,0,"background");
+    mybackground=new component(1000,500,"./images/grass1.png",0,0,"background");
     myGameArea.start();
 }
 
@@ -24,7 +24,7 @@ var myGameArea = {
         clearInterval(this.interval);
     }
 }
-
+ 
 function component(width, height, color, x, y, type) {
     this.type = type;
     if (type == "image" || type == "background") {
