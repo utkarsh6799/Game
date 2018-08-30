@@ -16,14 +16,25 @@ var myGameArea = {
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.frameNo = 0;
         this.interval = setInterval(updateGameArea, 20);
+      
+        window.addEventListener('keydown', function (e) {
+            myGameArea.key = e.keyCode;
+        })
+        window.addEventListener('keyup', function (e) {
+            myGameArea.key = false;
+        })
+    }, 
+       
+       
+        clear : function() {
+            this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
         },
-    clear : function() {
-        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    },
-    stop : function() {
-        clearInterval(this.interval);
+        stop : function() {
+            clearInterval(this.interval);
+        }
     }
-}
+    
+
  
 function component(width, height, color, x, y, type) {
     this.type = type;
@@ -63,14 +74,29 @@ function component(width, height, color, x, y, type) {
                 this.x = 0;
             }
         }
-    }    
+    }
+    this.movebug= function(){
+        if(myGameArea.key==38)
+        {this.y-=25;}
+        if(myGameArea.key==40)
+        {this.y+=25;}
+     }
+   
 }
 
+
 function updateGameArea() {
+    
+
     myGameArea.clear();
-    mybackground.speedX = -1;
+    mybackground.speedX = -2;
     mybackground.newPos();    
     mybackground.update();
-    mybug.newPos();    
-    mybug.update();
+
+     mybug.movebug();
+    mybug.newPos();
+     mybug.update();
+     mybug.speedY=0;
 }
+
+
