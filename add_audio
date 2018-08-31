@@ -1,0 +1,11 @@
+   html:
+    <audio loop>
+    <source src="game_audio.mp3" type='audio/mpeg; codecs="mp3"'/>
+    </audio>
+    
+   js:
+   function playMusic() {  
+   document.querySelector('audio').play();
+   };
+   playMusic();
+     
