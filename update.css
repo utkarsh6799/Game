@@ -1,0 +1,19 @@
+canvas {
+	position: fixed;
+    border:1px solid #d3d3d3;
+	height: 100vh;
+	background-image:url(images/grass1.png);
+	background-position: 0 0;
+    background-size: 100vh 100vh;
+	background-repeat: repeat-x;
+	animation: animate 5s linear infinite;
+}
+@keyframes animate{
+from{
+	background-position: 0 0;
+}
+to{
+	background-position: 200% 0;
+}
+}
+}
